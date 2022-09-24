@@ -14,3 +14,5 @@ config.yaml
 .report.xml
 .DS_Store
 .env
+
+divar_cache/
