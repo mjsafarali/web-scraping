@@ -23,13 +23,11 @@ func main() {
 
 	c := colly.NewCollector(
 		colly.AllowedDomains("divar.ir", "www.divar.ir"),
-		colly.CacheDir("./divar_cache"),
 		colly.MaxDepth(2),
 		colly.Debugger(&debug.LogDebugger{}),
 	)
 
 	// Create another collector to scrape course details
-	detailCollector := c.Clone()
 	ads := make([]Course, 0, 200)
 
 	// On every a element which has href attribute call callback
@@ -44,7 +42,7 @@ func main() {
 		}
 	})
 
-	detailCollector.OnHTML("div[id=app]", func(e *colly.HTMLElement) {
+	c.OnHTML("div[id=app]", func(e *colly.HTMLElement) {
 		log.Println("Course found")
 		title := e.ChildText(".kt-page-title__title.kt-page-title__title--responsive-sized")
 
