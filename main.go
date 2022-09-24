@@ -27,7 +27,7 @@ func main() {
 		colly.Debugger(&debug.LogDebugger{}),
 	)
 
-	// Create another collector to scrape course details
+	// Create another collector to scrape ad details
 	ads := make([]Ad, 0, 200)
 
 	// On every a element which has href attribute call callback
@@ -43,7 +43,7 @@ func main() {
 	})
 
 	c.OnHTML("div[id=app]", func(e *colly.HTMLElement) {
-		log.Println("Course found")
+		log.Println("Advertisement found")
 		title := e.ChildText(".kt-page-title__title.kt-page-title__title--responsive-sized")
 
 		ad := Ad{
