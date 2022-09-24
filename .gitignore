@@ -1,0 +1,16 @@
+# Project binary file
+web-scraping
+# Golang vendor directory
+vendor/
+# Project language directory
+assets/locales/*
+!.okd
+!web-scraping/
+.okd/.env
+.deploy/helm/config.yml
+config.yaml
+.build/
+.idea/
+.report.xml
+.DS_Store
+.env
