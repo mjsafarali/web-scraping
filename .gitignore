@@ -15,4 +15,4 @@ config.yaml
 .DS_Store
 .env
 
-divar_cache/
+divar_cache
