@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-type Course struct {
+type Ad struct {
 	Title       string `json:"title"`
 	URL         string `json:"url"`
 	Year        string `json:"year"`
@@ -28,7 +28,7 @@ func main() {
 	)
 
 	// Create another collector to scrape course details
-	ads := make([]Course, 0, 200)
+	ads := make([]Ad, 0, 200)
 
 	// On every a element which has href attribute call callback
 	c.OnHTML("a[href]", func(e *colly.HTMLElement) {
@@ -46,7 +46,7 @@ func main() {
 		log.Println("Course found")
 		title := e.ChildText(".kt-page-title__title.kt-page-title__title--responsive-sized")
 
-		ad := Course{
+		ad := Ad{
 			Title: title,
 			URL:   e.Request.URL.String(),
 		}
